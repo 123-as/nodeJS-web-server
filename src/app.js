@@ -11,6 +11,9 @@ const staticPath = path.join(__dirname, "..", "public");
 const templatePath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");
 
+//heroku 會為環境設定port
+const port = process.env.PORT || 3000;
+
 //customize server
 //告訴express從public資料夾載入靜態資源
 //當在html引用/img/girl.jpg時，express會從public中找，也就是public/img/girl.jpg
@@ -103,6 +106,6 @@ app.get("*", (req, res) => {
 });
 
 //啟動伺服器
-app.listen(3000, "0.0.0.0", () => {
-  console.log("Webserver Start.");
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Webserver Start. ${port}`);
 });

@@ -16,7 +16,7 @@ form.addEventListener("submit", (e) => {
   if (!value) {
     console.log("enter input");
   } else {
-    fetch(`http://localhost:3000/weather?address=${value}`).then((res) => {
+    fetch(`/weather?address=${value}`).then((res) => {
       res.json().then((data) => {
         if (data.error) {
           console.log(data.error);
